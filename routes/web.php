@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntityController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,12 @@ use App\Http\Controllers\EntityController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+
  
+
+// Home Controller
+
+Route::get('/',[HomeController::class,'index']);
 
 //Entities Controller 
 
