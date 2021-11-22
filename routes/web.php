@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntityController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +17,17 @@ use App\Http\Controllers\HomeController;
 */
 
 
- 
+ Route::get('/wizard', function () {
+	 
+	 
+
+
+    return view('admin.course.sample3');
+});
 
 // Home Controller
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('dashboard');
 
 //Entities Controller 
 
@@ -30,6 +37,11 @@ Route::get('/entity/list',[EntityController::class,'Entitylist'])->name('entity.
 Route::get('/entity/edit/{id}',[EntityController::class,'EntityEdit']);
 Route::post('/entity/update/{id}',[EntityController::class,'EntityUpdate']);
 Route::get('/entity/delete/{id}',[EntityController::class,'EntityDelete']);
+
+// Course Controller
+
+Route::get('/course/list',[CourseController::class,'index'])->name('course.list');
+Route::post('/entity/add',[CourseController::class,'AddCourse'])->name('add.course');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

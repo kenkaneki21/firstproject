@@ -15,6 +15,7 @@
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
+  
   <link rel="stylesheet" href="{{ asset('template/css/style.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{ asset('template/images/favicon.png')}}" />
@@ -211,6 +212,7 @@
   </div>
   <!-- container-scroller -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
   <!-- base:js -->
   <script src="{{ asset('template/vendors/js/vendor.bundle.base.js')}}"></script>
   <!-- endinject -->
@@ -226,6 +228,14 @@
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
   <script src="{{ asset('template/js/dashboard.js')}}"></script>
+  <!-- End custom js for this page-->
+  <script src="{{ asset('template/js/hoverable-collapse.js')}}"></script>
+    <!-- plugin js for this page -->
+  <script src="{{ asset('template/vendors/jquery.steps.min.js')}}"></script>
+  <script src="{{ asset('template/vendors/jquery.validate.min.js')}}"></script>
+  <!-- End plugin js for this page -->
+  <!-- Custom js for this page-->
+  <script src="{{ asset('template/vendors/wizard.js')}}"></script>
   <!-- End custom js for this page-->
 </body>
 

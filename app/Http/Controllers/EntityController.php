@@ -39,7 +39,7 @@ class EntityController extends Controller
         return Redirect()->route('entity.list')->with('success','Entity Updated Successfull');
     }
     public function RegisterEntity(Request $request){
-    	 $validated = $request->validate([
+    	$validated = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
         ],

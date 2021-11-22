@@ -5,7 +5,7 @@
           <span></span>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="{{ route('dashboard') }}">
             <i class="mdi mdi-view-quilt menu-icon"></i>
             <span class="menu-title">Dashboard</span>
              
@@ -29,9 +29,9 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="pages/forms/basic_elements.html">
-            <i class="mdi mdi-view-headline menu-icon"></i>
-            <span class="menu-title">Form elements</span>
+          <a class="nav-link" href="{{ route('course.list') }}">
+            <i class="mdi mdi-library-books menu-icon"></i>
+            <span class="menu-title">Course</span>
           </a>
         </li>
         <li class="nav-item">
