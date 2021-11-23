@@ -48,7 +48,7 @@
               </div>
             </div>
                   
-                  <div class="table-responsive  ">
+                  <div class="   ">
                    <table class="table">
                       <thead>
                         <tr>
@@ -75,9 +75,10 @@
                             @endforeach
                       </tbody>
                     </table>
-                    <br>
-                     {{ $courses->links() }}
+                   
+                  
                   </div>
+                     <ul class="pagination flex-wrap">{{ $courses->links() }}</ul>
                 </div>
               </div>
             </div>

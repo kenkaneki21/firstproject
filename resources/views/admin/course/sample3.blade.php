@@ -7,7 +7,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title"></h4>
-                  <form id="example-form"   action="{{ route('register.entity') }}" method="post">
+                  <form id="example-form"  method="post">
                     {{ csrf_field() }}
                     <div>
                       <h3>C1</h3>
@@ -200,5 +200,21 @@
             </div>
           </div>
           <!--vertical wizard-->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+          <script>
+$(document).ready(function(){
+
+ function okay(){
+  alert("mao ni");
+ }
+
+ $('#example-form').on('submit', function(event){
+        event.preventDefault();
+         alert('dsdasd')
+ });
+
+});
+</script>
         
           @endsection

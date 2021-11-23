@@ -1,44 +1,19 @@
 @extends('admin.admin_master')
 
 @section('admin')
-
-
-       <div class="col-12 grid-margin">
+   <link rel="stylesheet" href="{{ asset('template/css/style1.css')}}">
+<div class="row">
+            <div class="col-12 grid-margin">
               <div class="card">
-
                 <div class="card-body">
-                     @if(session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>{{session('success')}}</strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    @endif
-                  <h4 class="card-title">REGISTER ENTITY</h4>
-                  <form class="form-sample" action="{{ route('register.entity') }}" method="post">
+                  <h4 class="card-title"></h4>
+                  <form id="example-form"  method="post">
                     {{ csrf_field() }}
-                    <p class="card-description">
-                      Personal Data Info
-                    </p>
-                     
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#c1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">C1</button>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#c2" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">C2</button>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#c3" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">C3</button>
-                          </li>
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#c4" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">C4</button>
-                          </li>
-                           </ul>
-                <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="c1" role="tabpanel" aria-labelledby="pills-home-tab"><div class="row">
-
-                    </div>
-                    <div class="row">
+                    <div>
+                      <h3>C1</h3>
+                      <section>
+                       <h3>Account</h3>
+                         <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">First Name</label>
@@ -118,7 +93,6 @@
                         </div>
                       </div>
                     </div>
-                   
                     <p class="card-description">
                       Address
                     </p>
@@ -180,13 +154,54 @@
                           </div>
                         </div>
                       </div>
-                    </div></div>
-  <div class="tab-pane fade" id="c2" role="tabpanel" aria-labelledby="pills-profile-tab">..DS2D.</div>
-  <div class="tab-pane fade" id="c3" role="tabpanel" aria-labelledby="pills-contact-tab">.DS3D..</div>
-  <div class="tab-pane fade" id="c4" role="tabpanel" aria-labelledby="pills-contact-tab">.DS3D..</div>
-</div>
-                    <button type="submit" class="btn btn-success btn-block">Save All</button>  <button class="btn btn-danger btn-block">Clear</button>
+                    </div>
+                      
+                   
+                 
+                      </section>
+                      <h3>C2</h3>
+                      <section>
+                        <h3>Profile</h3>
+                        <div class="form-group">
+                          <label>First name</label>
+                          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+                          <label>Last name</label>
+                          <input type="password" class="form-control" placeholder="Last name">
+                        </div>
+                        <div class="form-group">
+                          <label>Profession</label>
+                          <input type="password" class="form-control" placeholder="Profession">
+                        </div>
+                      </section>
+                      <h3>C3</h3>
+                      <section>
+                        <h3>Comments</h3>
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                      </section>
+                      <h3>C4</h3>
+                      <section>
+                        <h3>Finish</h3>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox">
+                            I agree with the Terms and Conditions.
+                          </label>
+                        </div>
+                      </section>
+                    </div>
                   </form>
                 </div>
               </div>
-                    @endsection
+            </div>
+          </div>
+          <!--vertical wizard-->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+          
+        
+          @endsection

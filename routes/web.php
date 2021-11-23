@@ -24,6 +24,13 @@ use App\Http\Controllers\CourseController;
 
     return view('admin.course.sample3');
 });
+ Route::get('/dynamic', function () {
+     
+     
+
+
+    return view('admin.course.sample');
+});
 
 // Home Controller
 

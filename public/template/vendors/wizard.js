@@ -6,7 +6,26 @@
     bodyTag: "section",
     transitionEffect: "slideLeft",
     onFinished: function(event, currentIndex) {
-      alert("Submitted!");
+      
+      
+        $.ajaxSetup({
+        headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+       
+        $.ajax({
+        url: "http://127.0.0.1:8000/entity/create",
+        type: "POST",
+        data: $('#example-form').serialize(),
+        success: function( response ) {
+       
+        alert('Ajax form has been submitted successfully');
+        document.getElementById("contactUsForm").reset(); 
+        }
+        });
+        
+        return false;
     }
   });
   var validationForm = $("#example-validation-form");

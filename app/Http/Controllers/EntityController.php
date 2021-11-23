@@ -47,11 +47,6 @@ class EntityController extends Controller
             'fname.required' => 'Please Input First Name',
             'lname.required' => 'Please Input Last Name',   
         ]);
-       
-         
- 
-         
-        
         Entity::insert([
             'f_name' => Str::ucfirst($request->firstname),
             'm_name' => Str::ucfirst($request->middlename),
@@ -61,11 +56,7 @@ class EntityController extends Controller
             'email' => $request->email,
             'created_at' => Carbon::now(),
         ]);
-
         return Redirect()->back()->with('success','Brand Update Succesfully');
-       
-
-
     }
      public function EntityDelete($id){
         $delete = Entity::find($id)->delete();
@@ -74,7 +65,6 @@ class EntityController extends Controller
     }
     public function Logout(){
         Auth::logout();
-
         return Redirect()->route('login')->with('success','User Logout');
     }
 }
