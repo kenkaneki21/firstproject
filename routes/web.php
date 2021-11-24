@@ -31,6 +31,16 @@ use App\Http\Controllers\CourseController;
 
     return view('admin.course.sample');
 });
+  Route::get('/profile', function () {
+     
+     
+
+
+    return view('admin.entity.profile');
+});
+ Route::get('/displaylang1',[EntityController::class,' Entitylist']);
+ Route::get('/displaylang',[EntityController::class,'Displayonly']);
+
 
 // Home Controller
 
@@ -40,10 +50,11 @@ Route::get('/',[HomeController::class,'index'])->name('dashboard');
 
 Route::get('/entity/register',[EntityController::class,'Register'])->name('entity.register');
 Route::post('/entity/create',[EntityController::class,'RegisterEntity'])->name('register.entity');
-Route::get('/entity/list',[EntityController::class,'Entitylist'])->name('entity.list');;
-Route::get('/entity/edit/{id}',[EntityController::class,'EntityEdit']);
+Route::get('/entity/list',[EntityController::class,'Entitylist'])->name('entity.list');
+Route::get('/entity/profile/{id}',[EntityController::class,'EntityEdit'])->name('profile');
 Route::post('/entity/update/{id}',[EntityController::class,'EntityUpdate']);
 Route::get('/entity/delete/{id}',[EntityController::class,'EntityDelete']);
+
 
 // Course Controller
 

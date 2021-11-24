@@ -27,36 +27,99 @@ class EntityController extends Controller
 
     }
     public function EntityUpdate(Request $request ,$id){
-        $update = Entity::find($id)->update([
-            'f_name' => Str::ucfirst($request->firstname),
-            'm_name' => Str::ucfirst($request->middlename),
-            'l_name' => Str::ucfirst($request->lastname),
-            'address' => $request->address,
-            'contact_number' => $request->contact,
-            'email' => $request->email,     
-        ]);
+        // $update = Entity::find($id)->update([
+        //     'entity_type' => $request->firstname,
+        //     'f_name' => Str::ucfirst($request->firstname),
+        //     'm_name' => Str::ucfirst($request->middlename),
+        //     'l_name' => Str::ucfirst($request->lastname),     
+        //    'birthdate' =>$request->lastname,
+        //    'sex' => $request->lastname,
+        //    'civil_status'=> $request->lastname,
+        //    'height' => $request->lastname,
+        //    'weight' => $request->lastname,
+        //    'blood_type' => $request->lastname,
+        //    'gsis_id' => $request->lastname,
+        //    'philhealth_no' => $request->lastname,
+        //    'sss_no' => $request->lastname,
+        //    'tin_no'=> $request->lastname,
+        //    'agency_employee_no' => $request->lastname,
+        //    'citizenship'=> $request->lastname,
+        //    'res_house' => $request->lastname,
+        //     'res_street' => $request->lastname,
+        //     'res_subdivision'=> $request->lastname,
+        //     'res_brgy' => $request->lastname,
+        //     'res_city' => $request->lastname,
+        //     'res_province' => $request->lastname,
+        //     'res_zipcode'=> $request->lastname,
+        //     'per_house' => $request->lastname,
+        //     'per_street' => $request->lastname,
+        //     'per_subdivision' => $request->lastname,
+        //     'per_brgy' => $request->lastname,
+        //     'per_city' => $request->lastname,
+        //     'per_province' => $request->lastname,
+        //     'per_zipcode' => $request->lastname,
+        //     'telephone' => $request->lastname,
+        //     'mobile' => $request->lastname,
+        //     'email' => $request->lastname,
+        //     'profile_pic' => $request->lastname,
+
+
+        // ]);
+
+       
          
-        return Redirect()->route('entity.list')->with('success','Entity Updated Successfull');
+      return response()->json(["status" => "success", "message" => "Success! post deleted"]);
+    }
+    public function Displayonly(){
+
+    $entities = Entity::find(19);
+      return view(response()->json($entities));
+
+
     }
     public function RegisterEntity(Request $request){
-    	$validated = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-        ],
-        [
-            'fname.required' => 'Please Input First Name',
-            'lname.required' => 'Please Input Last Name',   
-        ]);
-        Entity::insert([
+    	 
+      $entities =  Entity::create([
+            'entity_type' => $request->entity_type,
             'f_name' => Str::ucfirst($request->firstname),
             'm_name' => Str::ucfirst($request->middlename),
-            'l_name' => Str::ucfirst($request->lastname),
-            'address' => $request->address,
-            'contact_number' => $request->contact,
+            'l_name' => Str::ucfirst($request->lastname),     
+           'birthdate' =>$request->birthdate,
+           'sex' => $request->sex,
+           'civil_status'=> $request->civil_status,
+           'height' => $request->height,
+           'weight' => $request->weight,
+           'blood_type' => $request->blood_type,
+           'gsis_id' => $request->gsis_id,
+           'philhealth_no' => $request->philhealth_no,
+           'sss_no' => $request->sss_no,
+           'tin_no'=> $request->tin_no,
+           'agency_employee_no' => $request->agency_employee_no,
+           'citizenship'=> $request->citizenship,
+           'res_house' => $request->res_house,
+            'res_street' => $request->res_street,
+            'res_subdivision'=> $request->res_subdivision,
+            'res_brgy' => $request->res_brgy,
+            'res_city' => $request->res_city,
+            'res_province' => $request->res_province,
+            'res_zipcode'=> $request->res_zipcode,
+            'per_house' => $request->per_house,
+            'per_street' => $request->per_street,
+            'per_subdivision' => $request->per_subdivision,
+            'per_brgy' => $request->per_brgy,
+            'per_city' => $request->per_city,
+            'per_province' => $request->per_province,
+            'per_zipcode' => $request->per_zipcode,
+            'telephone' => $request->telephone,
+            'mobile' => $request->mobile,
             'email' => $request->email,
+            'profile_pic' => $request->email,    
+          
+
             'created_at' => Carbon::now(),
         ]);
-        return Redirect()->back()->with('success','Brand Update Succesfully');
+      
+     return Redirect()->route('profile',$entities->id)->with('success','Brand Update Succesfully');
     }
      public function EntityDelete($id){
         $delete = Entity::find($id)->delete();

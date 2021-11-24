@@ -38,13 +38,14 @@
                             <td>
                                  
                             </td>
-                            <td><a href="{{ url('entity/edit/'.$entity->id)}}" class="btn btn-info btn-sm">Edit</a>
+                            <td><a href="{{ url('entity/profile/'.$entity->id)}}" class="btn btn-info btn-sm">View</a>
                             <a href="{{ url('entity/delete/'.$entity->id)}}" onclick="return confirm('Are you sure to delete')"  class="btn btn-danger btn-sm">Delete</a>
                             </td>
                             </tr>
                             @endforeach
                       </tbody>
                     </table>
+                     {{ $entities->links() }} 
                   </div>
                 </div>
               </div>

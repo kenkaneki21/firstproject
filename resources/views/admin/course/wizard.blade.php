@@ -1,36 +1,23 @@
 @extends('admin.admin_master')
 
 @section('admin')
-
-
-      <div class="row">
-            
-             
-            
-            <div class="col-lg-12 grid-margin stretch-card">
+   <link rel="stylesheet" href="{{ asset('template/css/style1.css')}}">
+    <link rel="stylesheet" href="{{ asset('template/css/style.css')}}">
+<div class="row">
+            <div class="col-12 grid-margin">
               <div class="card">
                 <div class="card-body">
-                  
-                  <h4 class="card-title">Entity List</h4>
-<form action="{{ route('register.entity') }}" method="post">
-  @csrf
 
-                  <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">PERSONAL INFO</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">FAMILY BACKGROUND</button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                   
                     
-                     <center> <h3>PERSONAL DATA SHEET</h3></center>
-                  <div class="row">
+                  <h4 class="card-title"></h4>
+                  <form id="example-form"  method="post">
+                    {{ csrf_field() }}
+                    <div>
+                      <h3>PERSONAL INFO</h3>
+                      <section>
+                       <h3>PERSONAL DATA SHEET</h3>
+                        <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Profile Picture</label>
@@ -44,7 +31,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Entity Type</label>
                           <div class="col-sm-9">
-                            <select class="form-control" name="entity_type">
+                            <select class="form-control">
                               <option value="1">Student</option>
                               <option value="2">Instructor</option>
                             </select>
@@ -54,7 +41,7 @@
                       
                     </div>
 
-                    <div class="row">
+                         <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">First Name</label>
@@ -418,21 +405,53 @@
                         </div>
                       </div>
                     </div>
-
-
-
-                  </div>
-                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-                </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-              </form>
-                  
                    
+                 
+                      </section>
+                      <h3>FAMILY BACKGROUND</h3>
+                      <section>
+                        <h3>Profile</h3>
+                        <div class="form-group">
+                          <label>First name</label>
+                          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+                          <label>Last name</label>
+                          <input type="password" class="form-control" placeholder="Last name">
+                        </div>
+                        <div class="form-group">
+                          <label>Profession</label>
+                          <input type="password" class="form-control" placeholder="Profession">
+                        </div>
+                      </section>
+                      <h3>C3</h3>
+                      <section>
+                        <h3>Comments</h3>
+                        <div class="form-group">
+                          <label>Comments</label>
+                          <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                      </section>
+                      <h3>C4</h3>
+                      <section>
+                        <h3>Finish</h3>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox">
+                            I agree with the Terms and Conditions.
+                          </label>
+                        </div>
+                      </section>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
-            
-             
           </div>
-      @endsection
+          <!--vertical wizard-->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            
+
+          
+        
+          @endsection

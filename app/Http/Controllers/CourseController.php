@@ -17,24 +17,30 @@ class CourseController extends Controller
     return view('admin.course.index',compact('courses'));
     }
     public function AddCourse(Request $request){
-    	$validated = $request->validate([
-            'name' => 'required',
+    	// $validated = $request->validate([
+     //        'name' => 'required',
              
-        ],
-        [
-            'name.required' => 'Please Input Course Name',
+     //    ],
+     //    [
+     //        'name.required' => 'Please Input Course Name',
             
-        ]);
+     //    ]);
        
          
  
          
         
-        Course::insert([
-            'name' => Str::ucfirst($request->name),
+     //    Course::insert([
+     //        'name' => Str::ucfirst($request->name),
             
-            'created_at' => Carbon::now(),
-        ]);
+     //        'created_at' => Carbon::now(),
+     //    ]);
+
+          $course = new Course;
+        $course->name = $request->name;
+       $course_created_at  = Carbon::now();
+        $course->save();
+        
 
         return Redirect()->back()->with('success','Course Added Succesfully');
        

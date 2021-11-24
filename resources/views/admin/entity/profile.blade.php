@@ -8,18 +8,24 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="border-bottom text-center pb-4">
-                        <img src="https://th.bing.com/th/id/OIP.BYlUhGXWlMNsV1FFUisMFAHaH7?pid=ImgDet&rs=1" alt="profile" class="img-lg rounded-circle mb-3"/>
+                        <img src="../../../../images/faces/face12.jpg" alt="profile" class="img-lg rounded-circle mb-3"/>
                         <div class="mb-3">
-                          <h3>{{ $entities->f_name }} {{ $entities->m_name }} {{ $entities->l_name }}</h3>
-                         
+                          <h3>David Grey. H</h3>
+                          <div class="d-flex align-items-center justify-content-center">
+                            <h5 class="mb-0 mr-2 text-muted">Canada</h5>
+                            <select id="profile-rating" name="rating" autocomplete="off">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                            </select>
+                          </div>
                         </div>
-                        
+                        <p class="w-75 mx-auto mb-3">Bureau Oberhaeuser is a design bureau focused on Information- and Interface Design. </p>
                         <div class="d-flex justify-content-center">
-                          @if($entities->entity_type == 1)
-                          <button class="btn btn-success mr-1">Student</button>
-                          @else
-                          <button class="btn btn-primary">Instructor</button>
-                          @endif
+                          <button class="btn btn-success mr-1">Hire Me</button>
+                          <button class="btn btn-success">Follow</button>
                         </div>
                       </div>
                       <div class="border-bottom py-4">
