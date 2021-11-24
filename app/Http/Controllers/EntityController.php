@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entity;
+use App\Models\Family;
 use Illuminate\Support\Carbon;
 use Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class EntityController extends Controller
 {
@@ -15,11 +17,26 @@ class EntityController extends Controller
     }
     //
     public function Entitylist(){
-     $entities = Entity::latest()->paginate(5);
-     return view('admin.entity.index',compact('entities'));
+     $entities = Entity::orderBy('l_name', 'desc')->paginate(10);
+     $markings = 1 ;
+     return view('admin.entity.index',compact('entities','markings'));
     }
     public function Register(){
     	 return view('admin.entity.register');
+    }
+    public function SearchEntity(Request $request){
+      $markings =0;
+      if($request->search == NULL){
+         $entities = Entity::latest()->paginate(10);
+        return Redirect()->route('entity.list');
+
+
+      }else{
+       
+       $entities = Entity::where('f_name', $request->search)
+    ->orWhere('l_name', 'like', '%' . $request->search . '%')->orderby('desc')->get();
+  }
+    return view('admin.entity.index',compact('entities','markings'));
     }
     public function EntityEdit($id){
     	$entities = Entity::find($id);
@@ -116,6 +133,25 @@ class EntityController extends Controller
             'profile_pic' => $request->email,    
           
 
+            'created_at' => Carbon::now(),
+        ]);
+
+       Family::insert([
+            'personal_id' => $entities->id,
+            'spouse_name' =>$request->s_name,
+            'spouse_lname'  =>$request->s_lname,
+            'spouse_middlename' =>$request->s_mname,
+            'spouse_nameextension' =>$request->s_extension,
+            'spouse_occupation' =>$request->s_occupation,
+            'spouse_businessname' =>$request->s_business,
+            'spouse_telephone' =>$request->s_telephone,
+            'father_surname' =>$request->father_name,
+            'father_firstname' =>$request->father_lastname,
+            'father_middlename' =>$request->father_middle,
+            'father_nameextension' =>$request->father_nameextension,
+            'mother_lastname' =>$request->mother_lastname,
+            'mother_firstname' =>$request->mother_firstname,
+            'mother_middlename' =>$request->mother_middlename, 
             'created_at' => Carbon::now(),
         ]);
       

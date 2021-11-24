@@ -38,8 +38,9 @@ use App\Http\Controllers\CourseController;
 
     return view('admin.entity.profile');
 });
- Route::get('/displaylang1',[EntityController::class,' Entitylist']);
+ Route::get('/displaylang1',[EntityController::class,' index']);
  Route::get('/displaylang',[EntityController::class,'Displayonly']);
+ Route::post('/entity/search',[EntityController::class,'SearchEntity'])->name('search.entity');
 
 
 // Home Controller
