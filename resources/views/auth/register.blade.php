@@ -32,6 +32,7 @@
               </div>
               <h4>New here?</h4>
               <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
+              <x-jet-validation-errors class="mb-4" />
               <form class="pt-3" method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="form-group">

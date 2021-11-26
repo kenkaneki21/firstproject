@@ -12,8 +12,7 @@
                 <div class="card-body">
                   
                   <h4 class="card-title">Entity List</h4>
-                  <span id="result"></span>
-<form   method="post" id="registerform">
+<form action="{{ route('register.entity') }}" method="post">
   @csrf
 
                   <ul class="nav nav-pills" id="pills-tab" role="tablist">
@@ -424,11 +423,12 @@
                   </div>
                   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><br>
                      <center> <h3>FAMILY BACKGROUND</h3></center>
-                     <p class="card-description">
+
+                      <p class="card-description">
                      SPOUSE INFORMATION
                     </p>
-                    <div class="row">
-                      <div class="col-md-6">
+                  <div class="row">
+                     <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">First Name</label>
                           <div class="col-sm-9">
@@ -473,7 +473,7 @@
                           </div>
                         </div>
                       </div>
-                       <div class="col-md-6">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">EMPLOYER/BUSINESS NAME</label>
                           <div class="col-sm-9">
@@ -482,7 +482,7 @@
                           </div>
                         </div>
                       </div>
-                       <div class="col-md-6">
+                      <div class="col-md-6">
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">BUSINESS ADDRESS</label>
                           <div class="col-sm-9">
@@ -499,14 +499,11 @@
                           <div class="col-sm-9">
                             <input type="text" class="form-control" name="s_telephone" placeholder="First Name" />
                              
-                          </div>
-                         </div>
-                       </div>
+                        </div>
+                      </div>
 
-
-
-                    </div>
-                   <p class="card-description">
+                  </div>
+                    <p class="card-description">
                      FATHER'S INFORMATION
                     </p>
                     <div class="row">
@@ -553,8 +550,7 @@
                         </div>
                       </div>
                     </div>
-
-                  <p class="card-description">
+                    <p class="card-description">
                     MOTHERS'S INFORMATION
                     </p>
                     <div class="row">
@@ -592,10 +588,11 @@
                       
                     </div>
 
+
                   </div>
                   <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                     <br>
-                    <center> <h3>CHILDREN</h3></center>
+                   <center> <h3>CHILDREN</h3></center>
                       <table class="table" id="user_table">
                            <thead>
                             <tr>
@@ -616,7 +613,6 @@
                             </tr>
                            </tfoot>
                        </table>
-                   
                   </div>
                   <div class="tab-pane fade" id="pills-contact1" role="tabpanel" aria-labelledby="pills-contact-tab1"><br>
                     <center> <h3>FAMILY BACKGROUND</h3></center>L
@@ -637,64 +633,11 @@
           </div>
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
           <script type="text/javascript">
             $(document).ready(function() {
-              $('#registerform').on('submit', function(event){
-                  event.preventDefault();
-                  var ss ="13";
-
-                  
-                  $.ajax({
-                      url:'{{ route('register.entity') }}',
-                      method:'post',
-                      data:$(this).serialize(),
-                      dataType:'json',
-                      beforeSend:function(){
-                          $('#save').attr('disabled','disabled');
-                      },
-                      success:function(data)
-                      {
-                          if(data.error)
-                          {
-                              var error_html = '';
-                              for(var count = 0; count < data.error.length; count++)
-                              {
-                                  error_html += '<p>'+data.error[count]+'</p>';
-                              }
-                              $('#result').html('<div class="alert alert-danger">'+error_html+'</div>');
-                          }
-                          else
-                          {
-                         swal({
-                          title: 'New Entity Added',
-                              text: 'Once deleted, you will not be able to recover this imaginary file!',
-                              icon: 'success',
-                              buttons: true,
-                              dangerMode: true,
-                              buttons: ['Create New', 'Saved & Proceed to Profile']
-                                          }).then((willDelete) => {
-                            if (willDelete) {
-                            
-                             var url = "{{ route('profile', ':ss') }}";
-                             url = url.replace(':ss', ss);
-                              window.location.href = url;
-                            } else {
-                              $('#result').html('<div class="alert alert-success">'+data.success+'</div>');
-                              $('#registerform').get(0).reset();
-                              $('#pills-home-tab').click();
-                              
-                            }
-                          });
-                               
-                             
-                          }
-                          $('#save').attr('disabled', false);
-                      }
-                  })
-           });
       
-$('.tago').hide();
+
 $('#copy').val($(this).is(':checked'));
 
   $('#copy').change(function() {

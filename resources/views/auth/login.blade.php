@@ -31,7 +31,14 @@
                 <img src="{{ asset('template/images/logo.svg')}}" alt="logo">
               </div>
               <h4>Welcome back!</h4>
-              <h6 class="font-weight-light">Happy to see you again!</h6>
+              <h6 class="font-weight-light">Happy to see you agains!</h6>
+                @if (session('status'))
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
+        @endif
+          <code><x-jet-validation-errors class="mb-4" /></code>
+
               <form class="pt-3" method="POST" action="{{ route('login') }}">
                  @csrf
                 <div class="form-group">
@@ -43,7 +50,9 @@
                       </span>
                     </div>
                     <input type="text" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Email" name="email">
-                  </div>
+                  </div>@error('brand_name')
+                                <span class="text-danger">{{ $email }}</span>
+                                @enderror
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword">Password</label>

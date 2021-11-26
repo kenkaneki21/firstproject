@@ -17,7 +17,7 @@ class EntityController extends Controller
     }
     //
     public function Entitylist(){
-     $entities = Entity::orderBy('l_name', 'desc')->paginate(10);
+     $entities = Entity::orderBy('l_name', 'asc')->paginate(10);
      $markings = 1 ;
      return view('admin.entity.index',compact('entities','markings'));
     }
@@ -34,7 +34,7 @@ class EntityController extends Controller
       }else{
        
        $entities = Entity::where('f_name', $request->search)
-    ->orWhere('l_name', 'like', '%' . $request->search . '%')->orderby('desc')->get();
+    ->orWhere('l_name', 'like', '%' . $request->search . '%')->orderBy('l_name', 'asc')->get();
   }
     return view('admin.entity.index',compact('entities','markings'));
     }
@@ -154,8 +154,12 @@ class EntityController extends Controller
             'mother_middlename' =>$request->mother_middlename, 
             'created_at' => Carbon::now(),
         ]);
-      
-     return Redirect()->route('profile',$entities->id)->with('success','Brand Update Succesfully');
+      return response()->json([
+       'success'  => 'Data Added successfully.',
+       'id' => $entities->id
+      ]);
+
+     //return Redirect()->route('profile',$entities->id)->with('success','Brand Update Succesfully');
     }
      public function EntityDelete($id){
         $delete = Entity::find($id)->delete();
