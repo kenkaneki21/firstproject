@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Entity;
 use App\Models\Family;
+use App\Models\Child;
 use Illuminate\Support\Carbon;
 use Auth;
 use Illuminate\Support\Str;
@@ -154,12 +155,26 @@ class EntityController extends Controller
             'mother_middlename' =>$request->mother_middlename, 
             'created_at' => Carbon::now(),
         ]);
+          $full_name = $request->full_name;
+          $birthday = $request->birthday;
+            for($count = 0; $count < count($full_name); $count++)
+          {
+           $data = array(
+            'personal_id' => $entities->id,
+            'full_name' => $full_name[$count],
+            'birthday'  => $birthday[$count]
+           );
+           $insert_data[] = $data; 
+          }
+          $child = Child::insert($insert_data);
+         
+
       return response()->json([
        'success'  => 'Data Added successfully.',
        'id' => $entities->id
       ]);
 
-     //return Redirect()->route('profile',$entities->id)->with('success','Brand Update Succesfully');
+     return Redirect()->route('profile',$entities->id)->with('success','Brand Update Succesfully');
     }
      public function EntityDelete($id){
         $delete = Entity::find($id)->delete();

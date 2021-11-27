@@ -10,40 +10,22 @@
                       <div class="border-bottom text-center pb-4">
                         <img src="https://th.bing.com/th/id/OIP.BYlUhGXWlMNsV1FFUisMFAHaH7?pid=ImgDet&rs=1" alt="profile" class="img-lg rounded-circle mb-3"/>
                         <div class="mb-3">
-                          <h3>{{ $entities->f_name }} {{ $entities->m_name }} {{ $entities->l_name }}</h3>
+                          <h3>{{ $entities->f_name }} {{ $entities->m_name }} {{ $entities->l_name }} </h3>
+
+                          
                          
                         </div>
                         
                         <div class="d-flex justify-content-center">
                           @if($entities->entity_type == 1)
-                          <button class="btn btn-success mr-1">Student</button>
+                          <h5>Student</h5>
                           @else
-                          <button class="btn btn-primary">Instructor</button>
+                          <h5>Instructor</h5>
                           @endif
                         </div>
                       </div>
-                      <div class="border-bottom py-4">
-                        <p>Skills</p>
-                        <div>
-                          <label class="badge badge-outline-dark">Chalk</label>
-                          <label class="badge badge-outline-dark">Hand lettering</label>
-                          <label class="badge badge-outline-dark">Information Design</label>
-                          <label class="badge badge-outline-dark">Graphic Design</label>
-                          <label class="badge badge-outline-dark">Web Design</label>  
-                        </div>                                                               
-                      </div>
-                      <div class="border-bottom py-4">
-                        <div class="d-flex mb-3">
-                          <div class="progress progress-md flex-grow">
-                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="55" style="width: 55%" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                        <div class="d-flex">
-                          <div class="progress progress-md flex-grow">
-                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="75" style="width: 75%" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
+                     
+                    
                       <div class="py-4">
                         <p class="clearfix">
                           <span class="float-left">
@@ -58,7 +40,7 @@
                             Phone
                           </span>
                           <span class="float-right text-muted">
-                            006 3435 22
+                            {{ $entities->mobile }}
                           </span>
                         </p>
                         <p class="clearfix">
@@ -66,27 +48,20 @@
                             Mail
                           </span>
                           <span class="float-right text-muted">
-                            Jacod@testmail.com
+                             {{ $entities->email }}
                           </span>
                         </p>
                         <p class="clearfix">
                           <span class="float-left">
-                            Facebook
+                            Birthdate 
                           </span>
                           <span class="float-right text-muted">
-                            <a href="#">David Grey</a>
+                            {{ $entities->birthdate }}
                           </span>
                         </p>
-                        <p class="clearfix">
-                          <span class="float-left">
-                            Twitter
-                          </span>
-                          <span class="float-right text-muted">
-                            <a href="#">@davidgrey</a>
-                          </span>
-                        </p>
+                      
                       </div>
-                      <button class="btn btn-primary btn-block mb-2">Preview</button>
+                    
                     </div>
                     <div class="col-lg-8">
                       <div class="d-block d-md-flex justify-content-between mt-4 mt-md-0">
@@ -103,99 +78,134 @@
                           <li class="nav-item">
                             <a class="nav-link" href="#">
                               <i class="mdi mdi-account-outline"></i>
-                              Info
+                              I. Personal Info
                             </a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link active" href="#">
                               <i class="mdi mdi-newspaper"></i>
-                              Feed
+                              II. Family Background
                             </a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">
                               <i class="mdi mdi-calendar"></i>
-                              Agenda
+                              III. Educational Background
                             </a>
                           </li>
+                       <!--    <li class="nav-item">
+                            <a class="nav-link" href="#">
+                              <i class="mdi mdi-attachment"></i>
+                              IV. Civil Service Eligibility
+                            </a>
+                          </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">
+                              <i class="mdi mdi-attachment"></i>
+                              V. Work Experience  
+                            </a>
+                          </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">
+                              <i class="mdi mdi-attachment"></i>
+                              VI. VOLUNTARY WORK
+                            </a>
+                          </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">
+                              <i class="mdi mdi-attachment"></i>
+                              VII. LEARNING AND DEVELOPMENT
+                            </a>
+                          </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link" href="#">
+                              <i class="mdi mdi-attachment"></i>
+                              VII. OTHER INFORMATION
+                            </a>
+                          </li>
+
                           <li class="nav-item">
                             <a class="nav-link" href="#">
                               <i class="mdi mdi-attachment"></i>
-                              Resume
+                              LGU-C
                             </a>
-                          </li>
+                          </li> -->
+
+
                         </ul>
                       </div>
                       <div class="profile-feed">
-                        <div class="d-flex align-items-start profile-feed-item">
-                          <img src="../../../../images/faces/face13.jpg" alt="profile" class="img-sm rounded-circle"/>
-                          <div class="ml-4">
-                            <h6>
-                              Mason Beck
-                              <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                            </h6>
-                            <p>
-                              There is no better advertisement campaign that is low cost and also successful at the same time.
-                            </p>
-                            <p class="small text-muted mt-2 mb-0">
-                              <span>
-                                <i class="mdi mdi-star mr-1"></i>4
-                              </span>
-                              <span class="ml-2">
-                                <i class="mdi mdi-comment mr-1"></i>11
-                              </span>
-                              <span class="ml-2">
-                                <i class="mdi mdi-reply"></i>
-                              </span>
-                            </p>
-                          </div>
+                         <div class="row">
+
+                                <div class="col-md-1">
+                                </div>
+                                 <div class="col-md-10">
+
+                               <h3><center>Personal Information </center></h3><br>
+                               
+                                <p><font size="3"> Name: &nbsp; {{ $entities->l_name }}, {{ $entities->f_name }} {{ $entities->suffix }} {{ $entities->m_name }} </font> </p>
+
+                                <p><font size="3"> Date of Birth: &nbsp; {{ $entities->birthdate }} </font> </p>
+                                 <p><font size="3">Place of Birth: &nbsp; {{ $entities->birthplace }} </font> </p>
+
+                                  <p><font size="3">Sex: &nbsp; {{ $entities->sex }} </font> </p>
+
+                                   <p><font size="3">Civil Status: &nbsp; {{ $entities->civil_status }} </font> </p>
+
+                                  <p><font size="3">Height (m) &nbsp; {{ $entities->height }} </font> </p>
+
+                                  <p><font size="3">Weight (kg) &nbsp; {{ $entities->weight }} </font> </p>
+
+                                   <p><font size="3">Blood Type &nbsp; {{ $entities->blood_type }} </font> </p>
+
+                                  <p><font size="3">GSIS ID NO. &nbsp; {{ $entities->gsis_id }} </font> </p>
+
+                                   <p><font size="3">PHILHEALTH NO. &nbsp; {{ $entities->philhealth_no }} </font> </p>
+
+                                    <p><font size="3">SSS NO. &nbsp; {{ $entities->sss_no }} </font> </p>
+
+                                    <p><font size="3">TIN NO. &nbsp; {{ $entities->tin_no }} </font> </p>
+
+                                    <p><font size="3">AGENCY EMPLOYEE NO. &nbsp; {{ $entities->agency_employee_no }} </font> </p>
+
+                                     <p><font size="3">CITIZEN SHIP: &nbsp; {{ $entities->citizenship }} </font> </p>
+
+                                       <p><font size="3">MEMBERSHIP: &nbsp; {{ $entities->membershipRadios }} </font> </p>
+
+                                  
+
+                                     <p><font size="3"> RESIDENTIAL ADDRESS: &nbsp; {{ $entities->res_house }} {{ $entities->res_street }} {{ $entities->res_subdivision }} {{ $entities->res_brgy }} {{ $entities->res_city }} {{ $entities->res_province }} {{ $entities->res_zipcode }} </font> </p>
+
+                                      <p><font size="3"> PERMANENT ADDRESS: &nbsp; {{ $entities->per_house }} {{ $entities->per_street }} {{ $entities->per_subdivision }} {{ $entities->per_brgy }} {{ $entities->per_city }} {{ $entities->per_province }} {{ $entities->per_zipcode }} </font> </p>
+
+                                      <p><font size="3">TELEPHONE NO. &nbsp; {{ $entities->telephone }} </font> </p>
+
+                                        <p><font size="3">MOBILE NO. &nbsp; {{ $entities->mobile }} </font> </p>
+
+
+                                           <p><font size="3">EMAIL &nbsp; {{ $entities->email }} </font> </p>
+
+                                  </div> 
+
+                                  <div class="col-md-1">
+                                </div>
                         </div>
-                        <div class="d-flex align-items-start profile-feed-item">
-                          <img src="../../../../images/faces/face16.jpg" alt="profile" class="img-sm rounded-circle"/>
-                          <div class="ml-4">
-                            <h6>
-                              Willie Stanley
-                              <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                            </h6>
-                            <img src="../../../../images/samples/1280x768/12.jpg" alt="sample" class="rounded mw-100"/>                            
-                            <p class="small text-muted mt-2 mb-0">
-                              <span>
-                                <i class="mdi mdi-star mr-1"></i>4
-                              </span>
-                              <span class="ml-2">
-                                <i class="mdi mdi-comment mr-1"></i>11
-                              </span>
-                              <span class="ml-2">
-                                <i class="mdi mdi-reply"></i>
-                              </span>
-                            </p>
-                          </div>
+                      
                         </div>
-                        <div class="d-flex align-items-start profile-feed-item">
-                          <img src="../../../../images/faces/face19.jpg" alt="profile" class="img-sm rounded-circle"/>
-                          <div class="ml-4">
-                            <h6>
-                              Dylan Silva
-                              <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>10 hours</small>
-                            </h6>
-                            <p>
-                              When I first got into the online advertising business, I was looking for the magical combination 
-                              that would put my website into the top search engine rankings
-                            </p>
-                            <img src="../../../../images/samples/1280x768/5.jpg" alt="sample" class="rounded mw-100"/>                                                        
-                            <p class="small text-muted mt-2 mb-0">
-                              <span>
-                                <i class="mdi mdi-star mr-1"></i>4
-                              </span>
-                              <span class="ml-2">
-                                <i class="mdi mdi-comment mr-1"></i>11
-                              </span>
-                              <span class="ml-2">
-                                <i class="mdi mdi-reply"></i>
-                              </span>
-                            </p>
-                          </div>
-                        </div>
+                   
+                       
+                             
+                          
+                        
+                       
+
+
+
+                        
                       </div>
                     </div>
                   </div>

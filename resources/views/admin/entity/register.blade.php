@@ -11,9 +11,9 @@
               <div class="card">
                 <div class="card-body">
                   
-                  <h4 class="card-title">Entity List</h4>
+                  <h4 class="card-title">REGISTER ENTITY</h4>
                   <span id="result"></span>
-<form   method="post" id="registerform">
+<form  method="post" id="registerform">
   @csrf
 
                   <ul class="nav nav-pills" id="pills-tab" role="tablist">
@@ -642,7 +642,7 @@
             $(document).ready(function() {
               $('#registerform').on('submit', function(event){
                   event.preventDefault();
-                  var ss ="13";
+                  
 
                   
                   $.ajax({
@@ -675,7 +675,8 @@
                               buttons: ['Create New', 'Saved & Proceed to Profile']
                                           }).then((willDelete) => {
                             if (willDelete) {
-                            
+
+                            var ss =data.id;
                              var url = "{{ route('profile', ':ss') }}";
                              url = url.replace(':ss', ss);
                               window.location.href = url;
@@ -732,8 +733,8 @@ $('#copy').val($(this).is(':checked'));
  function dynamic_field(number)
  {
   html = '<tr>';
-        html += '<td><input type="text" name="first_name[]" class="form-control form-control-sm" place="Full Name"/></td>';
-        html += '<td><input type="text" name="last_name[]" class="form-control" place="Birthday"/></td>';
+        html += '<td><input type="text" name="full_name[]" class="form-control form-control-sm" place="Full Name"/></td>';
+        html += '<td><input type="text" name="birthday[]" class="form-control" place="Birthday"/></td>';
         if(number > 1)
         {
             html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
