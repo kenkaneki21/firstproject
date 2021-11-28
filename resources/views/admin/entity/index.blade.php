@@ -32,8 +32,8 @@
                     </div>
                   </form>
                   
-                  <div class="table-responsive  ">
-                   <table class="table">
+                 <div class="table-responsive">
+                    <table class="table table-striped"  style="padding: 1rem 0.9375rem;">
                       <thead>
                         <tr>
                           <th>ID</th>
@@ -46,14 +46,20 @@
                       <tbody>
                          <!--@php($i = 1) -->
                              @foreach($entities as $entity)
-                            <tr>
-                            <th scope="row">   <img src="{{ asset('template/images/faces/face5.jpg')}}" width="50px" alt="profile"/> </th>
-                            <td>{{ $entity->f_name}} {{ $entity->m_name}} {{ $entity->l_name}} </td>
-                            <td>   </td>
-                            <td>
+                            <tr >
+                            <td class="py-1" style="padding: 1rem 0.9375rem;">
+                            @if($entity->profile_pic)
+                             <img src="{{ asset($entity->profile_pic)}}" width="50px" alt="profile"/> 
+                            @else
+                             <img src="{{ asset('template/images/faces/face5.jpg')}}" width="50px" alt="profile"/> 
+                             @endif
+                           </td>
+                            <td style="padding: 1rem 0.9375rem;">{{ $entity->f_name}} {{ $entity->m_name}} {{ $entity->l_name}} </td>
+                            <td style="padding: 1rem 0.9375rem;">   </td>
+                            <td style="padding: 1rem 0.9375rem;">
                                  
                             </td>
-                            <td><a href="{{ url('entity/profile/'.$entity->id)}}" class="btn btn-info btn-sm">View</a>
+                            <td style="padding: 1rem 0.9375rem;"><a href="{{ url('entity/enroll/'.$entity->id)}}" class="btn btn-primary btn-sm">Enroll</a> <a href="{{ url('entity/profile/'.$entity->id)}}" class="btn btn-info btn-sm">View</a>
                             <a href="{{ url('entity/delete/'.$entity->id)}}" onclick="return confirm('Are you sure to delete')"  class="btn btn-danger btn-sm">Delete</a>
                             </td>
                             </tr>

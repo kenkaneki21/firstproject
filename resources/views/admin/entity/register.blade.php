@@ -13,7 +13,7 @@
                   
                   <h4 class="card-title">REGISTER ENTITY</h4>
                   <span id="result"></span>
-<form  method="post" id="registerform">
+<form  method="post" id="registerform" enctype="multipart/form-data">
   @csrf
 
                   <ul class="nav nav-pills" id="pills-tab" role="tablist">
@@ -39,7 +39,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Profile Picture</label>
                           <div class="col-sm-9">
-                            <input type="file" class="form-control" name="firstname"/>
+                            <input type="file" class="form-control" name="profile_pic"/>
                               
                           </div>
                         </div>
@@ -604,7 +604,7 @@
                                 <th width="30%">ACTION</th>
                             </tr>
                            </thead>
-                           <tbody>
+                           <tbody id="childrenbody">
 
                            </tbody>
                            <tfoot>
@@ -625,7 +625,21 @@
 
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">PERSONAL INFO</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">FAMILY BACKGROUND</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">CHILDREN</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab1" data-bs-toggle="pill" data-bs-target="#pills-contact1" type="button" role="tab" aria-controls="pills-contact1" aria-selected="false">EDUCATIONAL BACKGROUND</button>
+                  </li>
+                </ul>
+                <button type="submit" class="btn btn-primary" id="save">Save</button>
               </form>
                   
                    
@@ -642,19 +656,19 @@
             $(document).ready(function() {
               $('#registerform').on('submit', function(event){
                   event.preventDefault();
-                  
-
-                  
+                    var formData = new FormData(this);
                   $.ajax({
                       url:'{{ route('register.entity') }}',
                       method:'post',
-                      data:$(this).serialize(),
-                      dataType:'json',
+                      data:formData,
+                      contentType: false,
+                      processData: false,
                       beforeSend:function(){
                           $('#save').attr('disabled','disabled');
                       },
                       success:function(data)
                       {
+                        
                           if(data.error)
                           {
                               var error_html = '';
@@ -738,12 +752,12 @@ $('#copy').val($(this).is(':checked'));
         if(number > 1)
         {
             html += '<td><button type="button" name="remove" id="" class="btn btn-danger remove">Remove</button></td></tr>';
-            $('tbody').append(html);
+            $('#childrenbody').append(html);
         }
         else
         {   
             html += '<td><button type="button" name="add" id="add" class="btn btn-success">Add</button></td></tr>';
-            $('tbody').html(html);
+            $('#childrenbody').html(html);
         }
  }
 

@@ -47,4 +47,28 @@ class CourseController extends Controller
 
 
     }
+    public function GetCourse(){
+        $courses = Course::get();
+
+         $data = array();
+         $n=0;
+         foreach ($courses as $k) {
+          $n++;
+          $row = array();
+          $row[] = '<strong>'.$k->name.'</strong>';
+          $row[] ="";
+          $row[] ='<button class="btn btn-outline-primary btn-xs">+</button>';
+
+          $data[] = $row;
+          }
+          $output = array(
+             "draw" =>2,
+             "recordsTotal" => count($courses),
+             "recordsFiltered" =>  count($courses),
+             "data" => $data,
+          );
+   
+     return response()->json($output);
+
+    }
 }

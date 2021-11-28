@@ -6,22 +6,7 @@
     bodyTag: "section",
     transitionEffect: "slideLeft",
     onFinished: function(event, currentIndex) {
-      
-        $.ajax({
-        url: "http://127.0.0.1:8000/entity/create",
-        type: "POST",
-
-        data: $('#example-form').serialize(),
-        success: function( response ) {
-     
-      
-       
-      
-       window.reload();
-        
-        }
-        });
-        
+     alert('sdad');
          
     }
   });

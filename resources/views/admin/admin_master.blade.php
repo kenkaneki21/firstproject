@@ -235,7 +235,12 @@
   <script src="{{ asset('template/vendors/jquery.validate.min.js')}}"></script>
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
-  <script src="{{ asset('template/vendors/wizard.js')}}"></script>
+  
+  <script src="{{ asset('template/js/jquery.dataTables.js')}}"></script>
+  <script src="{{ asset('template/js/dataTables.bootstrap4.js')}}"></script>
+   
+  
+  
   <!-- End custom js for this page-->
 </body>
 

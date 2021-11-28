@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Image;
 
 class EntityController extends Controller
 {
@@ -29,7 +30,7 @@ class EntityController extends Controller
       $markings =0;
       if($request->search == NULL){
          $entities = Entity::latest()->paginate(10);
-        return Redirect()->route('entity.list');
+        return Redirect()->route('entity.all');
 
 
       }else{
@@ -96,9 +97,18 @@ class EntityController extends Controller
 
     }
     public function RegisterEntity(Request $request){
+      $last_img ="" ;
+       $profile = $request->file('profile_pic');
+       if($profile){
+       $name_gen = hexdec(uniqid()).'.'.$profile->getClientOriginalExtension();
+       $last_img = 'template/entity_photos/'.$name_gen;
+       Image::make($profile)->resize(300,200)->save('template/entity_photos/'.$name_gen);
+     }
+    
     	 
       $entities =  Entity::create([
             'entity_type' => $request->entity_type,
+            'profile_pic' => $last_img,   
             'f_name' => Str::ucfirst($request->firstname),
             'm_name' => Str::ucfirst($request->middlename),
             'l_name' => Str::ucfirst($request->lastname),     
@@ -131,7 +141,7 @@ class EntityController extends Controller
             'telephone' => $request->telephone,
             'mobile' => $request->mobile,
             'email' => $request->email,
-            'profile_pic' => $request->email,    
+             
           
 
             'created_at' => Carbon::now(),
@@ -162,7 +172,8 @@ class EntityController extends Controller
            $data = array(
             'personal_id' => $entities->id,
             'full_name' => $full_name[$count],
-            'birthday'  => $birthday[$count]
+            'birthday'  => $birthday[$count],
+            'created_at' => Carbon::now(),
            );
            $insert_data[] = $data; 
           }

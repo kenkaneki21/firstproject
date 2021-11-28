@@ -35,12 +35,16 @@
             <span class="menu-title">Course</span>
           </a>
         </li>
-        
-        
-        <li class="nav-item sidebar-category">
-          <p>Pages</p>
-          <span></span>
+       
+        <li class="nav-item ">
+          <a class="nav-link" href="{{ route('user.record') }}">
+            <i class="mdi mdi-emoticon menu-icon"></i>
+            <span class="menu-title">User</span>
+          </a>
         </li>
+        
+        
+         
         
         <li class="nav-item sidebar-category">
           <p>Apps</p>
